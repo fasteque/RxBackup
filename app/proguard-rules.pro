@@ -29,5 +29,9 @@
     @butterknife.* <methods>;
 }
 
+# LeakCanary
+-keep class org.eclipse.mat.** { *; }
+-keep class com.squareup.leakcanary.** { *; }
+
 # RxAndroid
 -dontwarn rx.internal.util.unsafe.**
