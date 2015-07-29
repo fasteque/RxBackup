@@ -1,9 +1,11 @@
-package com.fasteque.rxbackup;
+package com.fasteque.rxbackup.views.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.fasteque.rxbackup.R;
 
 public class MainActivity extends AppCompatActivity {
 
