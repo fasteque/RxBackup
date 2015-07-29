@@ -11,7 +11,7 @@ public class ApplicationInfo {
     private long lastUpdateTime;
     private String icon;
 
-    public String getPackageName() {Renam
+    public String getPackageName() {
         return packageName;
     }
 
