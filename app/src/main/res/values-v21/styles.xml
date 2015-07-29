@@ -1,0 +1,12 @@
+<resources>
+
+    <!-- Base application theme -->
+    <style name="AppTheme" parent="AppTheme.Base">
+        <item name="android:navigationBarColor">@color/primary</item>
+    </style>
+
+    <style name="AppTheme.ActionBar" parent="AppTheme.Base.ActionBar">
+        <item name="android:navigationBarColor">@color/primary</item>
+    </style>
+
+</resources>
