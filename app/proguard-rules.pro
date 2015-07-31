@@ -16,6 +16,11 @@
 #   public *;
 #}
 
+# Android Support Design Library
+-dontwarn android.support.design.**
+-keep class android.support.design.** { *; }
+-keep interface android.support.design.** { *; }
+
 # Butter Knife
 -keep class butterknife.** { *; }
 -dontwarn butterknife.internal.**
