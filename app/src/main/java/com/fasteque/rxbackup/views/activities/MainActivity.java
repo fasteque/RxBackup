@@ -1,13 +1,27 @@
 package com.fasteque.rxbackup.views.activities;
 
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.fasteque.rxbackup.R;
 
+import butterknife.Bind;
+
 public class MainActivity extends AppCompatActivity {
+
+    @Bind(R.id.apps_toolbar)
+    Toolbar toolbar;
+
+    @Bind(R.id.apps_swipe)
+    SwipeRefreshLayout swipeRefreshLayout;
+
+    @Bind(R.id.apps_recyclerview)
+    RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
