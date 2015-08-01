@@ -4,12 +4,20 @@ package com.fasteque.rxbackup.model.entities;
  * Created by danielealtomare on 29/07/15.
  * Project: RxBackup
  */
-public class ApplicationInfo {
+public class ApplicationInfo implements Comparable<Object> {
     private String packageName;
     private String name;
     private long size;
     private long lastUpdateTime;
     private String icon;
+
+    public ApplicationInfo(String packageName, String name, long size, long lastUpdateTime, String icon) {
+        this.packageName = packageName;
+        this.name = name;
+        this.size = size;
+        this.lastUpdateTime = lastUpdateTime;
+        this.icon = icon;
+    }
 
     public String getPackageName() {
         return packageName;
@@ -49,5 +57,11 @@ public class ApplicationInfo {
 
     public void setIcon(String icon) {
         this.icon = icon;
+    }
+
+    @Override
+    public int compareTo(Object another) {
+        ApplicationInfo f = (ApplicationInfo) another;
+        return getPackageName().compareTo(f.getPackageName());
     }
 }
