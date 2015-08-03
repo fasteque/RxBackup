@@ -34,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
 
         initToolbar();
         initRecyclerView();
+        initDependencyInjector();
+        initPresenter();
     }
 
     @Override
@@ -62,8 +64,15 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
     private void initRecyclerView() {
+        // TODO
+    }
+
+    private void initDependencyInjector() {
+        // TODO
+    }
+
+    private void initPresenter() {
         // TODO
     }
 }
