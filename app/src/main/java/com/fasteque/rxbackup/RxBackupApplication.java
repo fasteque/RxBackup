@@ -4,6 +4,9 @@ import android.app.Application;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
+import com.fasteque.rxbackup.injection.components.ApplicationComponent;
+import com.fasteque.rxbackup.injection.components.DaggerApplicationComponent;
+import com.fasteque.rxbackup.injection.modules.ApplicationModule;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
 
@@ -13,6 +16,7 @@ import com.squareup.leakcanary.RefWatcher;
  */
 public class RxBackupApplication extends Application {
 
+    private ApplicationComponent applicationComponent;
     private RefWatcher refWatcher;
 
     public static RefWatcher getRefWatcher(@NonNull Context context) {
@@ -20,9 +24,16 @@ public class RxBackupApplication extends Application {
         return application.refWatcher;
     }
 
+    public ApplicationComponent getApplicationComponent() {
+        return applicationComponent;
+    }
+
     @Override
     public void onCreate() {
         super.onCreate();
         refWatcher = LeakCanary.install(this);
+
+        applicationComponent = DaggerApplicationComponent.builder()
+                .applicationModule(new ApplicationModule(this)).build();
     }
 }
