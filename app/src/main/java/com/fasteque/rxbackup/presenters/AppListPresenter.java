@@ -1,7 +1,8 @@
 package com.fasteque.rxbackup.presenters;
 
 import android.support.annotation.NonNull;
-import android.view.View;
+
+import com.fasteque.rxbackup.views.View;
 
 /**
  * Created by danielealtomare on 02/08/15.
