@@ -15,8 +15,11 @@ import android.view.MenuItem;
 
 import com.fasteque.rxbackup.R;
 import com.fasteque.rxbackup.RxBackupApplication;
+import com.fasteque.rxbackup.injection.components.DaggerAppListComponent;
+import com.fasteque.rxbackup.injection.modules.ActivityModule;
 import com.fasteque.rxbackup.presenters.AppListPresenter;
 import com.fasteque.rxbackup.views.AppListView;
+import com.fasteque.rxbackup.views.adapters.AppListAdapter;
 
 import javax.inject.Inject;
 
@@ -36,6 +39,8 @@ public class MainActivity extends AppCompatActivity implements AppListView {
 
     @Inject
     AppListPresenter appListPresenter;
+
+    private AppListAdapter appListAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,10 +106,20 @@ public class MainActivity extends AppCompatActivity implements AppListView {
 
     private void initRecyclerView() {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        appListAdapter = new AppListAdapter();
+        recyclerView.setAdapter(appListAdapter);
+
+        // TODO: handle clicks here?
     }
 
     private void initDependencyInjector() {
-        // Currently there's nothing to do here.
+        RxBackupApplication playgroundApplication = (RxBackupApplication) getApplication();
+
+        // We need to inject the presenter
+        DaggerAppListComponent.builder()
+                .activityModule(new ActivityModule(this))
+                .applicationComponent(playgroundApplication.getApplicationComponent())
+                .build().inject(this);
     }
 
     private void initPresenter() {

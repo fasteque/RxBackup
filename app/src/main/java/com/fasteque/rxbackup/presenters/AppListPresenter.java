@@ -4,11 +4,19 @@ import android.support.annotation.NonNull;
 
 import com.fasteque.rxbackup.views.View;
 
+import javax.inject.Inject;
+
 /**
  * Created by danielealtomare on 02/08/15.
  * Project: RxBackup
  */
 public class AppListPresenter implements Presenter {
+
+    @Inject
+    public AppListPresenter() {
+
+    }
+
     @Override
     public void onPresenterStart() {
 
