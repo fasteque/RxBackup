@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.fasteque.rxbackup.R;
 import com.fasteque.rxbackup.model.entities.ApplicationInfo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
@@ -21,7 +22,7 @@ import butterknife.ButterKnife;
  */
 public class AppListAdapter extends RecyclerView.Adapter<AppListAdapter.AppListViewHolder> {
 
-    private List<ApplicationInfo> applicationInfoList;
+    private List<ApplicationInfo> applicationInfoList = new ArrayList<>();
 
     @Override
     public AppListAdapter.AppListViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
