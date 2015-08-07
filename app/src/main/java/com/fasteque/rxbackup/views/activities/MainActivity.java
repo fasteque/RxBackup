@@ -12,21 +12,27 @@ import android.support.v7.widget.Toolbar;
 import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.fasteque.rxbackup.R;
 import com.fasteque.rxbackup.RxBackupApplication;
 import com.fasteque.rxbackup.injection.components.DaggerAppListComponent;
 import com.fasteque.rxbackup.injection.modules.ActivityModule;
+import com.fasteque.rxbackup.model.entities.ApplicationInfo;
 import com.fasteque.rxbackup.presenters.AppListPresenter;
 import com.fasteque.rxbackup.views.AppListView;
 import com.fasteque.rxbackup.views.adapters.AppListAdapter;
+
+import java.util.List;
 
 import javax.inject.Inject;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity implements AppListView {
+// TODO: complete SwipeRefreshLayout logic.
+
+public class MainActivity extends AppCompatActivity implements AppListView, SwipeRefreshLayout.OnRefreshListener {
 
     @Bind(R.id.apps_toolbar)
     Toolbar toolbar;
@@ -102,6 +108,9 @@ public class MainActivity extends AppCompatActivity implements AppListView {
         // Progress
         swipeRefreshLayout.setEnabled(false);
         swipeRefreshLayout.setRefreshing(true);
+
+        // Refresh listener
+        swipeRefreshLayout.setOnRefreshListener(this);
     }
 
     private void initRecyclerView() {
@@ -129,5 +138,20 @@ public class MainActivity extends AppCompatActivity implements AppListView {
     @Override
     public void displayError(@StringRes int message) {
         Snackbar.make(findViewById(android.R.id.content), getString(message), Snackbar.LENGTH_SHORT).show();
+        swipeRefreshLayout.setRefreshing(false);
+    }
+
+    @Override
+    public void refreshAppList(List<ApplicationInfo> applicationInfoList) {
+        recyclerView.setVisibility(View.VISIBLE);
+        appListAdapter.addApplications(applicationInfoList);
+        swipeRefreshLayout.setRefreshing(false);
+    }
+
+    @Override
+    public void onRefresh() {
+        if(appListPresenter != null) {
+            appListPresenter.refreshAppList();
+        }
     }
 }
