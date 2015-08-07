@@ -15,7 +15,7 @@
         android:paddingLeft="80dp"
         android:layout_width="match_parent"
         android:layout_height="72dp"
-        android:textSize="24sp"
+        android:textSize="18sp"
         android:textColor="@color/primary_text"
         android:clickable="false"
         tools:targetApi="jelly_bean_mr1"/>
