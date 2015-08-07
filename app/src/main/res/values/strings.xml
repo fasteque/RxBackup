@@ -7,4 +7,6 @@
     <string name="prefs_butter_knife">Butter Knife</string>
     <string name="prefs_leak_canary">LeakCanary</string>
     <string name="prefs_rxandroid">RxAndroid</string>
+
+    <string name="error_retrieve_applications">Error while retrieving applications</string>
 </resources>
