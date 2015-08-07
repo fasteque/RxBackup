@@ -62,6 +62,6 @@ public class ApplicationInfo implements Comparable<Object> {
     @Override
     public int compareTo(Object another) {
         ApplicationInfo f = (ApplicationInfo) another;
-        return getPackageName().compareTo(f.getPackageName());
+        return getName().compareTo(f.getName());
     }
 }
