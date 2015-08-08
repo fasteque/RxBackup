@@ -12,12 +12,14 @@ public class ApplicationInfo implements Comparable<Object> {
     private String icon;
     private String versionName;
 
-    public ApplicationInfo(String packageName, String name, long size, long lastUpdateTime, String icon) {
+    public ApplicationInfo(String packageName, String name, long size, long lastUpdateTime, String icon, String
+            versionName) {
         this.packageName = packageName;
         this.name = name;
         this.size = size;
         this.lastUpdateTime = lastUpdateTime;
         this.icon = icon;
+        this.versionName = versionName;
     }
 
     public String getPackageName() {
