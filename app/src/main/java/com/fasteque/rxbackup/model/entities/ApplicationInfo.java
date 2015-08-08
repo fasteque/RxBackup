@@ -10,6 +10,7 @@ public class ApplicationInfo implements Comparable<Object> {
     private long size;
     private long lastUpdateTime;
     private String icon;
+    private String versionName;
 
     public ApplicationInfo(String packageName, String name, long size, long lastUpdateTime, String icon) {
         this.packageName = packageName;
@@ -57,6 +58,14 @@ public class ApplicationInfo implements Comparable<Object> {
 
     public void setIcon(String icon) {
         this.icon = icon;
+    }
+
+    public String getVersionName() {
+        return versionName;
+    }
+
+    public void setVersionName(String versionName) {
+        this.versionName = versionName;
     }
 
     @Override
