@@ -17,4 +17,13 @@
 
     <style name="AppTheme.ActionBar" parent="AppTheme.Base.ActionBar" />
 
+    <style name="ApplicationTitle" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textColor">@color/primary_text</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="ApplicationDetail" parent="@android:style/TextAppearance.Small">
+        <item name="android:textColor">@color/primary_text</item>
+    </style>
+
 </resources>
