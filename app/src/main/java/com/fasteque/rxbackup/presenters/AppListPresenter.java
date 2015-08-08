@@ -9,6 +9,7 @@ import android.support.annotation.NonNull;
 import com.fasteque.rxbackup.R;
 import com.fasteque.rxbackup.model.entities.ApplicationInfo;
 import com.fasteque.rxbackup.model.entities.ApplicationInfoRich;
+import com.fasteque.rxbackup.utils.BitmapUtils;
 import com.fasteque.rxbackup.views.AppListView;
 import com.fasteque.rxbackup.views.View;
 
@@ -20,6 +21,8 @@ import javax.inject.Inject;
 import rx.Observable;
 import rx.Observer;
 import rx.Subscriber;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
 /**
  * Created by danielealtomare on 02/08/15.
@@ -52,6 +55,8 @@ public class AppListPresenter implements Presenter {
     public void refreshAppList() {
         getApps()
                 .toSortedList()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<List<ApplicationInfo>>() {
                     @Override
                     public void onCompleted() {
@@ -87,14 +92,17 @@ public class AppListPresenter implements Presenter {
                 }
 
                 for (ApplicationInfoRich appInfo : apps) {
-                    // TODO: get application icon
+                    Bitmap icon = BitmapUtils.drawableToBitmap(appInfo.getIcon());
+                    String name = appInfo.getName();
+                    String iconPath = ((Activity) appListView).getFilesDir() + "/" + name;
+                    BitmapUtils.storeBitmap(((Activity) appListView), icon, name);
 
                     if (subscriber.isUnsubscribed()) {
                         return;
                     }
                     subscriber.onNext(new ApplicationInfo(appInfo.getPackageName(), appInfo.getName(), 0, appInfo
                             .getLastUpdateTime(),
-                            null));
+                            iconPath, appInfo.getVersionName()));
                 }
                 if (!subscriber.isUnsubscribed()) {
                     subscriber.onCompleted();

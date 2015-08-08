@@ -1,5 +1,7 @@
 package com.fasteque.rxbackup.views.adapters;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +17,11 @@ import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import rx.Observable;
+import rx.Observer;
+import rx.Subscriber;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
 /**
  * Created by danielealtomare on 05/08/15.
@@ -64,14 +71,47 @@ public class AppListAdapter extends RecyclerView.Adapter<AppListAdapter.AppListV
         @Bind(R.id.app_name)
         TextView appName;
 
+        @Bind(R.id.app_version)
+        TextView appVersion;
+
         public AppListViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
         }
 
         public void bindApplication(ApplicationInfo applicationInfo) {
-            // TODO: set application icon
             appName.setText(applicationInfo.getName());
+            appVersion.setText(applicationInfo.getVersionName());
+
+            getIconBitmap(applicationInfo.getIcon())
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(new Observer<Bitmap>() {
+                        @Override
+                        public void onCompleted() {
+
+                        }
+
+                        @Override
+                        public void onError(Throwable e) {
+
+                        }
+
+                        @Override
+                        public void onNext(Bitmap bitmap) {
+                            appIcon.setImageBitmap(bitmap);
+                        }
+                    });
+        }
+
+        private Observable<Bitmap> getIconBitmap(final String icon) {
+            return Observable.create(new Observable.OnSubscribe<Bitmap>() {
+                @Override
+                public void call(Subscriber<? super Bitmap> subscriber) {
+                    subscriber.onNext(BitmapFactory.decodeFile(icon));
+                    subscriber.onCompleted();
+                }
+            });
         }
     }
 }
