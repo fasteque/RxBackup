@@ -100,8 +100,9 @@ public class AppListPresenter implements Presenter {
                     if (subscriber.isUnsubscribed()) {
                         return;
                     }
-                    subscriber.onNext(new ApplicationInfo(appInfo.getPackageName(), appInfo.getName(), 0, appInfo
-                            .getLastUpdateTime(),
+                    subscriber.onNext(new ApplicationInfo(appInfo.getPackageName(), appInfo.getName(),
+                            appInfo.getApkSize(),
+                            appInfo.getLastUpdateTime(),
                             iconPath, appInfo.getVersionName()));
                 }
                 if (!subscriber.isUnsubscribed()) {
