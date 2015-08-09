@@ -12,6 +12,7 @@ import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.util.DisplayMetrics;
 
+import java.io.File;
 import java.util.Locale;
 
 /**
@@ -125,7 +126,9 @@ public class ApplicationInfoRich implements Comparable<Object> {
         }
     }
 
-    // TODO: get application size.
+    public long getApkSize() throws NameNotFoundException {
+        return new File(context.getPackageManager().getApplicationInfo(getPackageName(), 0).publicSourceDir).length();
+    }
 
     @Override
     public int compareTo(@NonNull Object o) {
