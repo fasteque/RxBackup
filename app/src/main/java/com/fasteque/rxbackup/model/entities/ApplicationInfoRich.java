@@ -126,8 +126,13 @@ public class ApplicationInfoRich implements Comparable<Object> {
         }
     }
 
-    public long getApkSize() throws NameNotFoundException {
-        return new File(context.getPackageManager().getApplicationInfo(getPackageName(), 0).publicSourceDir).length();
+    public long getApkSize() {
+        try {
+            return new File(context.getPackageManager().getApplicationInfo(getPackageName(), 0).publicSourceDir)
+                    .length();
+        } catch (NameNotFoundException e) {
+            return 0;
+        }
     }
 
     @Override
