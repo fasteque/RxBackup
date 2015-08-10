@@ -21,7 +21,8 @@
         android:layout_marginLeft="80dp"
         android:layout_marginStart="80dp"
         android:padding="4dp"
-        tools:targetApi="jelly_bean_mr1">
+        tools:targetApi="jelly_bean_mr1"
+        android:layout_gravity="center_vertical">
 
         <TextView
             android:id="@+id/app_name"
@@ -36,6 +37,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/app_apk_size"
+                style="@style/ApplicationDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"/>
+
+        </LinearLayout>
 
     </LinearLayout>
 

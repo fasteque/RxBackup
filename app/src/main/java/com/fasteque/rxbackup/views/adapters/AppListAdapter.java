@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.fasteque.rxbackup.R;
 import com.fasteque.rxbackup.model.entities.ApplicationInfo;
+import com.fasteque.rxbackup.utils.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -74,15 +75,15 @@ public class AppListAdapter extends RecyclerView.Adapter<AppListAdapter.AppListV
         @Bind(R.id.app_version)
         TextView appVersion;
 
+        @Bind(R.id.app_apk_size)
+        TextView appApkSize;
+
         public AppListViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
         }
 
         public void bindApplication(ApplicationInfo applicationInfo) {
-            appName.setText(applicationInfo.getName());
-            appVersion.setText("v" + applicationInfo.getVersionName());
-
             getIconBitmap(applicationInfo.getIcon())
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
@@ -102,6 +103,10 @@ public class AppListAdapter extends RecyclerView.Adapter<AppListAdapter.AppListV
                             appIcon.setImageBitmap(bitmap);
                         }
                     });
+
+            appName.setText(applicationInfo.getName());
+            appVersion.setText("v" + applicationInfo.getVersionName());
+            appApkSize.setText(StringUtils.humanReadableByteCount(applicationInfo.getSize(), false));
         }
 
         private Observable<Bitmap> getIconBitmap(final String icon) {
