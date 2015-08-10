@@ -81,7 +81,7 @@ public class AppListAdapter extends RecyclerView.Adapter<AppListAdapter.AppListV
 
         public void bindApplication(ApplicationInfo applicationInfo) {
             appName.setText(applicationInfo.getName());
-            appVersion.setText(applicationInfo.getVersionName());
+            appVersion.setText("v" + applicationInfo.getVersionName());
 
             getIconBitmap(applicationInfo.getIcon())
                     .subscribeOn(Schedulers.io())
