@@ -6,6 +6,10 @@
             <intent android:action="android.intent.action.VIEW"
                     android:data="http://jakewharton.github.io/butterknife/" />
         </Preference>
+        <Preference android:title="@string/prefs_dagger" >
+            <intent android:action="android.intent.action.VIEW"
+                    android:data="http://google.github.io/dagger/" />
+        </Preference>
         <Preference android:title="@string/prefs_leak_canary" >
             <intent android:action="android.intent.action.VIEW"
                     android:data="https://github.com/square/leakcanary" />

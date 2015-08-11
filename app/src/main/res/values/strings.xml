@@ -5,6 +5,7 @@
 
     <string name="pref_open_source_libs">Open Source Libraries</string>
     <string name="prefs_butter_knife">Butter Knife</string>
+    <string name="prefs_dagger">Dagger 2</string>
     <string name="prefs_leak_canary">LeakCanary</string>
     <string name="prefs_rxandroid">RxAndroid</string>
 
