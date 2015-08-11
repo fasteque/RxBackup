@@ -3,6 +3,15 @@ RxBackup [![Build Status](https://travis-ci.org/fasteque/RxBackup.svg?branch=mas
 
 Note: this application is to be considered always as a "work in progress" and it is not production ready.
 
+Android RxBackup is a sample application developed to study RxAndroid.
+
+Besides Android SDK APIs and Support libraries, the following libraries and frameworks are used in this project:
+
+- [Clean Architecture](https://github.com/android10/Android-CleanArchitecture)
+- [RxAndroid](https://github.com/ReactiveX/RxAndroid)
+- [Dagger2](https://github.com/google/dagger)
+- [LeakCanary](https://github.com/square/leakcanary)
+- [Butter Knife](https://github.com/JakeWharton/butterknife)
 
 License
 ================
