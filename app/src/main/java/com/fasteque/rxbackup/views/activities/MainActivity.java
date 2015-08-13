@@ -30,7 +30,6 @@ import javax.inject.Inject;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-// TODO: complete SwipeRefreshLayout logic.
 
 public class MainActivity extends AppCompatActivity implements AppListView, SwipeRefreshLayout.OnRefreshListener {
 
@@ -105,11 +104,7 @@ public class MainActivity extends AppCompatActivity implements AppListView, Swip
         swipeRefreshLayout.setProgressViewOffset(false, 0,
                 (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
 
-        // Progress
-        swipeRefreshLayout.setEnabled(false);
         swipeRefreshLayout.setRefreshing(true);
-
-        // Refresh listener
         swipeRefreshLayout.setOnRefreshListener(this);
     }
 
