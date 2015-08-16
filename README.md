@@ -11,7 +11,14 @@ Besides Android SDK APIs and Support libraries, the following libraries and fram
 - [RxAndroid](https://github.com/ReactiveX/RxAndroid)
 - [Dagger2](https://github.com/google/dagger)
 - [LeakCanary](https://github.com/square/leakcanary)
-- [Butter Knife](https://github.com/JakeWharton/butterknife)
+- [Butter Knife](https://github.com/JakeWharton/butterknife) 
+
+For any comment, feedback or if you would like to help, please write to daniele.altomare@gmail.com.
+
+<br>
+##### Latest available APK:
+[Release v0.1](https://github.com/fasteque/RxBackup/releases/download/0.1/RxBackup-v0.1.apk)
+<br><br>
 
 License
 ================
