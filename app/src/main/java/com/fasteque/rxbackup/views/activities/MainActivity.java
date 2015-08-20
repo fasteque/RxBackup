@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity implements AppListView, Swip
     }
 
     private void initSwipeRefreshLayout() {
-        swipeRefreshLayout.setColorSchemeColors(getResources().getColor(R.color.primary));
+        swipeRefreshLayout.setColorSchemeColors(getResources().getColor(R.color.primary, getTheme()));
         swipeRefreshLayout.setProgressViewOffset(false, 0,
                 (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
 
