@@ -117,12 +117,12 @@ public class MainActivity extends AppCompatActivity implements AppListView, Swip
     }
 
     private void initDependencyInjector() {
-        RxBackupApplication playgroundApplication = (RxBackupApplication) getApplication();
+        RxBackupApplication rxBackupApplication = (RxBackupApplication) getApplication();
 
         // We need to inject the presenter
         DaggerAppListComponent.builder()
                 .activityModule(new ActivityModule(this))
-                .applicationComponent(playgroundApplication.getApplicationComponent())
+                .applicationComponent(rxBackupApplication.getApplicationComponent())
                 .build().inject(this);
     }
 
