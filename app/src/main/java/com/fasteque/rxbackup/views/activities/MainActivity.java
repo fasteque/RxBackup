@@ -1,6 +1,7 @@
 package com.fasteque.rxbackup.views.activities;
 
 import android.content.Intent;
+import android.os.Build;
 import android.support.annotation.StringRes;
 import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -100,7 +101,11 @@ public class MainActivity extends AppCompatActivity implements AppListView, Swip
     }
 
     private void initSwipeRefreshLayout() {
-        swipeRefreshLayout.setColorSchemeColors(getResources().getColor(R.color.primary, getTheme()));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            swipeRefreshLayout.setColorSchemeColors(getResources().getColor(R.color.primary, getTheme()));
+        } else {
+            swipeRefreshLayout.setColorSchemeColors(getResources().getColor(R.color.primary));
+        }
         swipeRefreshLayout.setProgressViewOffset(false, 0,
                 (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
 
