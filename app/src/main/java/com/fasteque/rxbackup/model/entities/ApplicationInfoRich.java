@@ -158,7 +158,7 @@ public class ApplicationInfoRich implements Comparable<Object> {
             if (ri.activityInfo.labelRes != 0) {
                 name = engRes.getString(ri.activityInfo.labelRes);
 
-                if (name == null || name.equals("")) {
+                if (name.equals("")) {
                     name = res.getString(ri.activityInfo.labelRes);
                 }
 

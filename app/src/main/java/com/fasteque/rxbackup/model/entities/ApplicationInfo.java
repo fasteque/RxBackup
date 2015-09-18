@@ -1,5 +1,7 @@
 package com.fasteque.rxbackup.model.entities;
 
+import android.support.annotation.NonNull;
+
 /**
  * Created by danielealtomare on 29/07/15.
  * Project: RxBackup
@@ -71,7 +73,7 @@ public class ApplicationInfo implements Comparable<Object> {
     }
 
     @Override
-    public int compareTo(Object another) {
+    public int compareTo(@NonNull Object another) {
         ApplicationInfo f = (ApplicationInfo) another;
         return getName().compareTo(f.getName());
     }
