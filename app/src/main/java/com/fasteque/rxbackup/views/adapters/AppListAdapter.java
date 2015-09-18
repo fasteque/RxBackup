@@ -1,5 +1,6 @@
 package com.fasteque.rxbackup.views.adapters;
 
+import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v7.widget.RecyclerView;
@@ -83,6 +84,7 @@ public class AppListAdapter extends RecyclerView.Adapter<AppListAdapter.AppListV
             ButterKnife.bind(this, itemView);
         }
 
+        @SuppressLint("SetTextI18n")
         public void bindApplication(ApplicationInfo applicationInfo) {
             getIconBitmap(applicationInfo.getIcon())
                     .subscribeOn(Schedulers.io())

@@ -104,6 +104,7 @@ public class MainActivity extends AppCompatActivity implements AppListView, Swip
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             swipeRefreshLayout.setColorSchemeColors(getResources().getColor(R.color.primary, getTheme()));
         } else {
+            //noinspection deprecation
             swipeRefreshLayout.setColorSchemeColors(getResources().getColor(R.color.primary));
         }
         swipeRefreshLayout.setProgressViewOffset(false, 0,
