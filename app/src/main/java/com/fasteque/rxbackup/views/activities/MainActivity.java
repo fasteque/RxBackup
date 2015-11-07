@@ -50,8 +50,8 @@ public class MainActivity extends AppCompatActivity implements AppListView, Swip
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         setTheme(R.style.AppTheme);
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         ButterKnife.bind(this);
