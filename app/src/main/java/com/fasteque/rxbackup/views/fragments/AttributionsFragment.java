@@ -15,7 +15,7 @@ import com.fasteque.rxbackup.R;
  */
 public class AttributionsFragment extends PreferenceFragment {
 
-    OnPreferenceSelectedListener onPreferenceSelectedListener;
+    private OnPreferenceSelectedListener onPreferenceSelectedListener;
 
     public interface OnPreferenceSelectedListener {
         void onPreferenceWithUriSelected(Uri uri);
