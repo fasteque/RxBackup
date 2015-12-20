@@ -1,0 +1,43 @@
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
+
+ext {
+    // Android
+    androidBuildToolsVersion = "23.0.2"
+    androidMinSdkVersion = 16
+    androidTargetSdkVersion = 23
+    androidCompileSdkVersion = 23
+
+    androidSupportLibraryVersion = '23.1.1'
+    rxAndroidVersion = '1.0.1'
+    butterKnifeVersion = '7.0.1'
+    daggerCompilerVersion = '2.0'
+    daggerVersion = '2.0'
+    javaxAnnotationVersion = '10.0-b28'
+    leakCanaryVersion = '1.3.1'
+
+    appDependencies = [
+            appCompat:          "com.android.support:appcompat-v7:${androidSupportLibraryVersion}",
+            design:             "com.android.support:design:${androidSupportLibraryVersion}",
+            recyclerView:       "com.android.support:recyclerview-v7:${androidSupportLibraryVersion}",
+            cardView:           "com.android.support:cardview-v7:${androidSupportLibraryVersion}",
+            customTabs:         "com.android.support:customtabs:${androidSupportLibraryVersion}",
+            rxandroid:          "io.reactivex:rxandroid:${rxAndroidVersion}",
+            butterknife:        "com.jakewharton:butterknife:${butterKnifeVersion}",
+            daggerCompiler:     "com.google.dagger:dagger-compiler:${daggerCompilerVersion}",
+            dagger:             "com.google.dagger:dagger:${daggerVersion}",
+            javaxAnnotation:    "org.glassfish:javax.annotation:${javaxAnnotationVersion}",
+            leakCanary:         "com.squareup.leakcanary:leakcanary-android:${leakCanaryVersion}"
+    ]
+
+    appDebugMinifiedDependencies = [
+            leakCanaryNoOp:     "com.squareup.leakcanary:leakcanary-android-no-op:${leakCanaryVersion}"
+    ]
+
+    appReleaseDependencies = [
+            leakCanaryNoOp:     "com.squareup.leakcanary:leakcanary-android-no-op:${leakCanaryVersion}"
+    ]
+}
