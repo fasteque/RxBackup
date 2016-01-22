@@ -24,9 +24,6 @@ class CustomTabsHelper {
     private static final String BETA_PACKAGE = "com.chrome.beta";
     private static final String DEV_PACKAGE = "com.chrome.dev";
     private static final String LOCAL_PACKAGE = "com.google.android.apps.chrome";
-    private static final String EXTRA_CUSTOM_TABS_KEEP_ALIVE =
-            "android.support.customtabs.extra.KEEP_ALIVE";
-
 
     private static String sPackageNameToUse;
 
@@ -46,7 +43,6 @@ class CustomTabsHelper {
     public static String getPackageNameToUse(Context context) {
         if (sPackageNameToUse != null) return sPackageNameToUse;
 
-
         PackageManager pm = context.getPackageManager();
         // Get default VIEW intent handler.
         Intent activityIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.fasteque.com"));
@@ -55,7 +51,6 @@ class CustomTabsHelper {
         if (defaultViewHandlerInfo != null) {
             defaultViewHandlerPackageName = defaultViewHandlerInfo.activityInfo.packageName;
         }
-
 
         // Get all apps that can handle VIEW intents.
         List<ResolveInfo> resolvedActivityList = pm.queryIntentActivities(activityIntent, 0);
@@ -68,7 +63,6 @@ class CustomTabsHelper {
                 packagesSupportingCustomTabs.add(info.activityInfo.packageName);
             }
         }
-
 
         // Now packagesSupportingCustomTabs contains all apps that can handle both VIEW intents
         // and service calls.
@@ -91,7 +85,6 @@ class CustomTabsHelper {
         }
         return sPackageNameToUse;
     }
-
 
     /**
      * Used to check whether there is a specialized handler for a given intent.
@@ -119,7 +112,6 @@ class CustomTabsHelper {
         }
         return false;
     }
-
 
     /**
      * @return All possible chrome package names that provide custom tabs feature.
