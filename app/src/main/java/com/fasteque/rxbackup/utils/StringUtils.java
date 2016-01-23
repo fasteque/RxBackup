@@ -7,7 +7,7 @@ package com.fasteque.rxbackup.utils;
 public class StringUtils {
 
     /**
-     * Android has it own formater for bytes, but with this utility, there's no need to pass a Context.
+     * Android has it own formatter for bytes, but with this utility, there's no need to pass a Context.
      * In AppListAdapter we do not have to pass a context yet, so let's keep this method.
      */
     public static String humanReadableByteCount(long bytes, boolean si) {
