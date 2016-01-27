@@ -21,8 +21,8 @@ import java.util.Locale;
  */
 public class ApplicationInfoRich implements Comparable<Object> {
     private String name = null;
-    private Context context;
-    private ResolveInfo resolveInfo;
+    private final Context context;
+    private final ResolveInfo resolveInfo;
     private ComponentName componentName = null;
     private PackageInfo packageInfo = null;
     private Drawable icon = null;
