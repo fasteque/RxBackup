@@ -33,6 +33,7 @@ public class ApplicationInfoRich implements Comparable<Object> {
 
         componentName = new ComponentName(ri.activityInfo.applicationInfo.packageName, ri.activityInfo.name);
 
+        //noinspection EmptyCatchBlock
         try {
             packageInfo = ctx.getPackageManager().getPackageInfo(getPackageName(), 0);
         } catch (NameNotFoundException e) {
