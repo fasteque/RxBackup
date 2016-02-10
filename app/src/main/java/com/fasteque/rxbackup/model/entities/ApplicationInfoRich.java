@@ -154,7 +154,7 @@ public class ApplicationInfoRich implements Comparable<Object> {
         String name = ri.resolvePackageName;
         if (ri.activityInfo != null) {
             Resources res = context.getPackageManager().getResourcesForApplication(ri.activityInfo.applicationInfo);
-            Resources engRes = getEnglishRessources(res);
+            Resources engRes = getEnglishResources(res);
 
             if (ri.activityInfo.labelRes != 0) {
                 name = engRes.getString(ri.activityInfo.labelRes);
@@ -170,7 +170,7 @@ public class ApplicationInfoRich implements Comparable<Object> {
         return name;
     }
 
-    public Resources getEnglishRessources(Resources standardResources) {
+    public Resources getEnglishResources(Resources standardResources) {
         AssetManager assets = standardResources.getAssets();
         DisplayMetrics metrics = standardResources.getDisplayMetrics();
         Configuration config = new Configuration(standardResources.getConfiguration());
