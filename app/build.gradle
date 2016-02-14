@@ -20,14 +20,8 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
 
-        debugLeakCanaryNoOp.initWith(buildTypes.debug)
-        debugLeakCanaryNoOp {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -43,8 +37,6 @@ android {
 
 dependencies {
     def appDependencies = rootProject.ext.appDependencies
-    def appDebugMinifiedDependencies = rootProject.ext.appDebugMinifiedDependencies
-    def appReleaseDependencies = rootProject.ext.appReleaseDependencies
 
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile appDependencies.appCompat
@@ -59,8 +51,4 @@ dependencies {
     apt appDependencies.daggerCompiler
     compile appDependencies.dagger
     compile appDependencies.javaxAnnotation
-
-    debugCompile appDependencies.leakCanary
-    debugLeakCanaryNoOpCompile appDebugMinifiedDependencies.leakCanaryNoOp
-    releaseCompile appReleaseDependencies.leakCanaryNoOp
 }

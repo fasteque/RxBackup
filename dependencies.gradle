@@ -17,7 +17,6 @@ ext {
     daggerCompilerVersion = '2.0'
     daggerVersion = '2.0'
     javaxAnnotationVersion = '10.0-b28'
-    leakCanaryVersion = '1.3.1'
 
     appDependencies = [
             appCompat:          "com.android.support:appcompat-v7:${androidSupportLibraryVersion}",
@@ -30,14 +29,5 @@ ext {
             daggerCompiler:     "com.google.dagger:dagger-compiler:${daggerCompilerVersion}",
             dagger:             "com.google.dagger:dagger:${daggerVersion}",
             javaxAnnotation:    "org.glassfish:javax.annotation:${javaxAnnotationVersion}",
-            leakCanary:         "com.squareup.leakcanary:leakcanary-android:${leakCanaryVersion}"
-    ]
-
-    appDebugMinifiedDependencies = [
-            leakCanaryNoOp:     "com.squareup.leakcanary:leakcanary-android-no-op:${leakCanaryVersion}"
-    ]
-
-    appReleaseDependencies = [
-            leakCanaryNoOp:     "com.squareup.leakcanary:leakcanary-android-no-op:${leakCanaryVersion}"
     ]
 }
