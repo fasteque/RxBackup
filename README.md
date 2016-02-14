@@ -10,8 +10,7 @@ Besides Android SDK APIs and Support libraries, the following libraries and fram
 - [Clean Architecture](https://github.com/android10/Android-CleanArchitecture)
 - [RxAndroid](https://github.com/ReactiveX/RxAndroid)
 - [Dagger2](https://github.com/google/dagger)
-- [LeakCanary](https://github.com/square/leakcanary)
-- [Butter Knife](https://github.com/JakeWharton/butterknife) 
+- [ButterKnife](https://github.com/JakeWharton/butterknife) 
 
 For any comment, feedback or if you would like to help, please write to daniele.altomare@gmail.com.
 
