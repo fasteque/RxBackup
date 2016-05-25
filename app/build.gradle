@@ -46,7 +46,8 @@ dependencies {
     compile appDependencies.customTabs
 
     compile appDependencies.rxandroid
-    compile appDependencies.butterknife
+    compile appDependencies.butterKnife
+    apt appDependencies.butterKnifeCompiler
 
     apt appDependencies.daggerCompiler
     compile appDependencies.dagger

@@ -17,7 +17,7 @@ import com.fasteque.rxbackup.utils.StringUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import rx.Observable;
 import rx.Observer;
@@ -67,16 +67,16 @@ public class AppListAdapter extends RecyclerView.Adapter<AppListAdapter.AppListV
     }
 
     class AppListViewHolder extends RecyclerView.ViewHolder {
-        @Bind(R.id.app_icon)
+        @BindView(R.id.app_icon)
         ImageView appIcon;
 
-        @Bind(R.id.app_name)
+        @BindView(R.id.app_name)
         TextView appName;
 
-        @Bind(R.id.app_version)
+        @BindView(R.id.app_version)
         TextView appVersion;
 
-        @Bind(R.id.app_apk_size)
+        @BindView(R.id.app_apk_size)
         TextView appApkSize;
 
         public AppListViewHolder(View itemView) {

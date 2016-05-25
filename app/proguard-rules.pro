@@ -21,18 +21,5 @@
 -keep class android.support.design.** { *; }
 -keep interface android.support.design.** { *; }
 
-# Butter Knife
--keep class butterknife.** { *; }
--dontwarn butterknife.internal.**
--keep class **$$ViewBinder { *; }
-
--keepclasseswithmembernames class * {
-    @butterknife.* <fields>;
-}
-
--keepclasseswithmembernames class * {
-    @butterknife.* <methods>;
-}
-
 # RxAndroid
 -dontwarn rx.internal.util.unsafe.**

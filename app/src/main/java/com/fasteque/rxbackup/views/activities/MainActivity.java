@@ -28,19 +28,19 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
 public class MainActivity extends AppCompatActivity implements AppListView, SwipeRefreshLayout.OnRefreshListener {
 
-    @Bind(R.id.apps_toolbar)
+    @BindView(R.id.apps_toolbar)
     Toolbar toolbar;
 
-    @Bind(R.id.apps_swipe)
+    @BindView(R.id.apps_swipe)
     SwipeRefreshLayout swipeRefreshLayout;
 
-    @Bind(R.id.apps_recyclerview)
+    @BindView(R.id.apps_recyclerview)
     RecyclerView recyclerView;
 
     @Inject
